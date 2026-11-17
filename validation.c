@@ -3,14 +3,21 @@
 
 int valid_reading(struct Reading reading) {
     /* TODO: check each field. */
-    (void)reading;
-    return 0;
+    if(reading.id < 0 || reading.id > 1000000 || reading.temp < -100 || reading.temp > 100 || reading.unit != 'C'){
+    	return 0;
+    }
+    return 1;
 }
 
 int read_reading(FILE *in, struct Reading *result) {
-    /* TODO: read into a local candidate, distinguish clean EOF from failure,
-       call valid_reading, and commit only a complete valid record. */
-    (void)in;
-    (void)result;
+    struct Reading read;
+    
+	if(fscanf(in, "%d", &read.id) && fscanf(in, "%d", &read.temp) && fscanf(in, "%c", &read.unit)){
+		if(valid_reading(read)){
+				*result = read;
+				return 1;
+		}
+		return -1;
+	}
     return 0;
 }
