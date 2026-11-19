@@ -2,9 +2,13 @@
 #include "analysis.h"
 
 struct Summary summarize_readings(const struct Reading items[], int length) {
-    /* TODO: handle the empty case and calculate a fresh summary. */
-    (void)items;
-    (void)length;
     struct Summary result = {0, 0, 0, 0, 0};
+    result.count = length;
+    for(int i = 0; i < length; i++){
+    	result.total += items[i].temp;
+    	if(items[i].temp < 0) result.freezing++;
+    	if(items[i].temp < result.minimum) result.minimum = items[i].temp;
+    	if(items[i].temp > result.maximum) result.maximum = items[i].temp;
+    }
     return result;
 }

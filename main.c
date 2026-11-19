@@ -12,6 +12,17 @@ int main(int argc, char *argv[]) {
     /* argv[1] is the input filename; argv[2] is the output filename.
        TODO: call the loader, handle failure, write the report, free the array,
        and return success/failure. Report errors to stderr. */
-    fprintf(stderr, "TODO: implement HW4.\n");
-    return 1;
+	struct Reading* items;
+	int length = 0;
+	if(!load_readings(argv[1], &items, &length)){
+		fprintf(stderr, "Could not load readings\n");
+		return 1;
+	}
+
+	if(!write_report(argv[2], items, length)){
+		fprintf(stderr, "Could not write report\n");
+		return 1;
+	}
+
+    return 0;
 }
