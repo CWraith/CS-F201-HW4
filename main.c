@@ -21,8 +21,9 @@ int main(int argc, char *argv[]) {
 
 	if(!write_report(argv[2], items, length)){
 		fprintf(stderr, "Could not write report\n");
+		free(items);
 		return 1;
 	}
-
+	free(items);
     return 0;
 }
