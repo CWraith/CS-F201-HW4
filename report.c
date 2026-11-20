@@ -6,7 +6,7 @@ int write_summary(FILE *out, struct Summary summary) {
 	if(summary.count > 0){
 		if(fprintf(out, "Minimum: %d\nMaximum: %d\n", summary.minimum, summary.maximum) < 0) return 0;
 	}
-	else if(fprintf(out, "Minimum: N/A\nMaximum: N/A") < 0) return 0;
+	else if(fprintf(out, "Minimum: N/A\nMaximum: N/A\n") < 0) return 0;
 	if(fprintf(out, "Freezing readings:\n") < 0) return 0;
     return 1;
 }

@@ -8,8 +8,16 @@ int load_readings(const char *path, struct Reading **items, int *length) {
 	FILE* in = fopen(path, "r");
 	if(in == NULL) return 0;
     int count;
-    if(fscanf(in, "%d", &count) != 1) return 0;
-    if(count <= 0){
+    if(fscanf(in, "%d", &count) != 1){
+    	fclose(in);
+    	return 0;
+    }
+
+    if(count < 0){
+    	fclose(in);
+    	return 0;
+    }
+    if(count == 0){
    		*length = 0;
         *items = NULL;
         fclose(in);
@@ -30,7 +38,7 @@ int load_readings(const char *path, struct Reading **items, int *length) {
 	}
 
 	char trail;
-	if(fscanf(in, "%c", &trail) == 1){
+	if(fscanf(in, " %c", &trail) == 1){
 		fclose(in);
 		free(readings);
 		return 0;
