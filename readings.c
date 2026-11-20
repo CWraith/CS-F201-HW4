@@ -20,6 +20,11 @@ int load_readings(const char *path, struct Reading **items, int *length) {
     if(count == 0){
    		*length = 0;
         *items = NULL;
+        char trail;
+        if(fscanf(in, " %c", &trail) == 1){
+        	fclose(in);
+        	return 0;
+        }
         fclose(in);
         return 1;
 	}
