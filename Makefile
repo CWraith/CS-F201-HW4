@@ -1,4 +1,3 @@
-# A4: AI-assisted instructor scaffolding.
 CC = gcc
 CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -g
 LDFLAGS =

@@ -1,4 +1,3 @@
-/* A4: AI-assisted instructor scaffolding. */
 #ifndef REPORT_H
 #define REPORT_H
 

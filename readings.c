@@ -1,4 +1,4 @@
-// A1
+// A1: making code cleaner
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>

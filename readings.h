@@ -1,4 +1,3 @@
-/* A4: AI-assisted instructor scaffolding. */
 #ifndef READINGS_H
 #define READINGS_H
 

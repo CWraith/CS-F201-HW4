@@ -1,4 +1,3 @@
-/* A4: AI-assisted instructor scaffolding. Mark your own assistance separately. */
 #include <stdio.h>
 #include <stdlib.h>
 #include "readings.h"
@@ -9,9 +8,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Usage: %s INPUT_PATH OUTPUT_PATH\n", argv[0]);
         return 1;
     }
-    /* argv[1] is the input filename; argv[2] is the output filename.
-       TODO: call the loader, handle failure, write the report, free the array,
-       and return success/failure. Report errors to stderr. */
 	struct Reading* items;
 	int length = 0;
 	if(!load_readings(argv[1], &items, &length)){
